@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36b94352-f6f6-4853-aff5-ec2e393b712b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Data_Structures_and_Algorithms_Graphs_and_BinaryTree.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-    </list>
+    <list default="true" id="36b94352-f6f6-4853-aff5-ec2e393b712b" name="Changes" comment="commit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,6 +23,65 @@
     <commands />
     <urls />
   </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.008549170947091" />
+      <entry key="MS500" value="1.4107162784676033" />
+      <entry key="S2" value="2.4477714413932983" />
+      <entry key="S5" value="3.1911620475190827" />
+      <entry key="S10" value="3.554471787593396" />
+      <entry key="S30" value="3.841193097409076" />
+      <entry key="S60" value="3.9192289770914805" />
+      <entry key="M2" value="3.9592662500694504" />
+      <entry key="M5" value="3.98362209669879" />
+      <entry key="M10" value="3.991796911700724" />
+      <entry key="M15" value="3.9945281278258666" />
+      <entry key="M30" value="3.9972624892993114" />
+      <entry key="H1" value="3.9986308507536252" />
+      <entry key="H2" value="3.99931532687246" />
+      <entry key="H4" value="3.999657638806348" />
+      <entry key="D1" value="3.9999429363799197" />
+      <entry key="W1" value="3.9999918479704872" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="0.0" />
+      <entry key="S5" value="0.0" />
+      <entry key="S10" value="0.0" />
+      <entry key="S30" value="0.0" />
+      <entry key="S60" value="0.0" />
+      <entry key="M2" value="0.0" />
+      <entry key="M5" value="0.0" />
+      <entry key="M10" value="0.0" />
+      <entry key="M15" value="0.0" />
+      <entry key="M30" value="0.0" />
+      <entry key="H1" value="0.0" />
+      <entry key="H2" value="0.0" />
+      <entry key="H4" value="0.0" />
+      <entry key="D1" value="0.0" />
+      <entry key="W1" value="0.0" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="0.9542019117159566" />
+      <entry key="MS500" value="1.3942470443833355" />
+      <entry key="S2" value="2.4277958775698005" />
+      <entry key="S5" value="3.1765848514539776" />
+      <entry key="S10" value="3.545447773324576" />
+      <entry key="S30" value="3.83771492034261" />
+      <entry key="S60" value="3.9174250076134194" />
+      <entry key="M2" value="3.9583475521426257" />
+      <entry key="M5" value="3.9832505417226804" />
+      <entry key="M10" value="3.9916104494595652" />
+      <entry key="M15" value="3.994403667091512" />
+      <entry key="M30" value="3.997200182543558" />
+      <entry key="H1" value="3.9985996782594992" />
+      <entry key="H2" value="3.9992997358439437" />
+      <entry key="H4" value="3.999649842096428" />
+      <entry key="D1" value="3.9999416367621765" />
+      <entry key="W1" value="3.999991662306741" />
+    </decayedShown>
+  </component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 5,
   "fromUser": false
@@ -46,6 +97,7 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.MCP Project settings loaded": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -78,8 +130,17 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1783218773106</updated>
-      <workItem from="1783218774132" duration="737000" />
+      <workItem from="1783218774132" duration="957000" />
     </task>
+    <task id="LOCAL-00001" summary="commit">
+      <option name="closed" value="true" />
+      <created>1783219633000</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1783219633000</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -95,6 +156,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
