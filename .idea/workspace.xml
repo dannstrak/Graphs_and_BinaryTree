@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="36b94352-f6f6-4853-aff5-ec2e393b712b" name="Changes" comment="Estructura_del_programa">
-      <change afterPath="$PROJECT_DIR$/src/concurrencia/gestor_trafico.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/mapa_ecuador.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/concurrencia/avion.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/concurrencia/avion.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logica/aproximacion.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/logica/aproximacion.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logica/espacio_aereo.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/logica/espacio_aereo.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/visualizacion/radar_ui.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/visualizacion/radar_ui.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mapa_ecuador.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -231,7 +224,7 @@
       <workItem from="1783218774132" duration="957000" />
       <workItem from="1783219821141" duration="2844000" />
       <workItem from="1783783381372" duration="3394000" />
-      <workItem from="1783792516042" duration="7486000" />
+      <workItem from="1783792516042" duration="8320000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <option name="closed" value="true" />
@@ -265,7 +258,15 @@
       <option name="project" value="LOCAL" />
       <updated>1783786645879</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Estructura_del_programa">
+      <option name="closed" value="true" />
+      <created>1783803489043</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1783803489043</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -289,6 +290,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Data_Structures_and_Algorithms_Graphs_and_BinaryTree$radar_ui.coverage" NAME="radar_ui Coverage Results" MODIFIED="1783801753969" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/visualizacion" />
-    <SUITE FILE_PATH="coverage/Data_Structures_and_Algorithms_Graphs_and_BinaryTree$main.coverage" NAME="main Coverage Results" MODIFIED="1783802011701" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/Data_Structures_and_Algorithms_Graphs_and_BinaryTree$main.coverage" NAME="main Coverage Results" MODIFIED="1783804074045" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
   </component>
 </project>
