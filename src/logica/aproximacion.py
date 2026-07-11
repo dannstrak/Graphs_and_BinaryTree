@@ -6,9 +6,8 @@ class NodoArbol:
         self.es_hoja = es_hoja
         self.resultado = resultado
 
-
 def generar_arbol_aterrizaje():
-    """Genera el árbol de decisión estándar para aproximación a un aeropuerto."""
+
     # Hojas del árbol (Resultados finales)
     hoja_aterrizaje = NodoArbol(es_hoja=True, resultado="Autorizado para aterrizar. Pista libre.")
     hoja_espera = NodoArbol(es_hoja=True, resultado="Tráfico en pista. Entrando en patrón de espera.")

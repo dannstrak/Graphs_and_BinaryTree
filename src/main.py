@@ -1,8 +1,17 @@
-import tkinter as tk
-from Prototype import GrafoATC, NodoGrafo, InterfazRadar
+import customtkinter as ctk
+
+from src.logica.espacio_aereo import GrafoATC, NodoGrafo
+from src.concurrencia.gestor_trafico import GestorTrafico
+from src.visualizacion.radar_ui import InterfazRadar
+
+
+def cerrar_aplicacion(ventana, gestor):
+    gestor.detener_todo()
+    ventana.destroy()
+
 
 if __name__ == "__main__":
-    # 1. Configurar la red espacial (Grafo)
+
     red_atc = GrafoATC()
 
     n_quito = NodoGrafo("Quito", 300, 100, es_aeropuerto=True)
@@ -11,7 +20,6 @@ if __name__ == "__main__":
     n_guayaquil = NodoGrafo("Guayaquil", 150, 400, es_aeropuerto=True)
     n_cuenca = NodoGrafo("Cuenca (WP)", 400, 350)
 
-    # 2. Conectar las aerovías (Aristas)
     n_quito.agregar_vecino(n_latacunga)
     n_latacunga.agregar_vecino(n_guayaquil)
     n_quito.agregar_vecino(n_manta)
@@ -22,7 +30,12 @@ if __name__ == "__main__":
     for n in [n_quito, n_latacunga, n_manta, n_guayaquil, n_cuenca]:
         red_atc.agregar_nodo(n)
 
-    # 3. Lanzar la interfaz gráfica
-    ventana = tk.Tk()
-    app = InterfazRadar(ventana, red_atc)
+    gestor_concurrencia = GestorTrafico()
+    gestor_concurrencia.iniciar_procesos()
+
+    ventana = ctk.CTk()
+    app = InterfazRadar(ventana, red_atc, gestor_concurrencia)
+
+    ventana.protocol("WM_DELETE_WINDOW", lambda: cerrar_aplicacion(ventana, gestor_concurrencia))
+
     ventana.mainloop()

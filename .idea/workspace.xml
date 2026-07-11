@@ -5,16 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="36b94352-f6f6-4853-aff5-ec2e393b712b" name="Changes" comment="Estructura_del_programa">
-      <change beforePath="$PROJECT_DIR$/.idea/Data_Structures_and_Algorithms_Graphs_and_BinaryTree.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Data_Structures_and_Algorithms_Graphs_and_BinaryTree.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/concurrencia/gestor_trafico.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/mapa_ecuador.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/engine/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/concurrencia/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/engine/process.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/concurrencia/avion.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logic/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/logica/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logic/inventory_BinarySearchTree.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/logica/aproximacion.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logic/map_Graph.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/logica/espacio_aereo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/concurrencia/avion.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/concurrencia/avion.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logica/aproximacion.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/logica/aproximacion.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logica/espacio_aereo.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/logica/espacio_aereo.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/visualizacion/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/windows.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/visualizacion/radar_ui.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/visualizacion/radar_ui.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/visualizacion/radar_ui.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +20,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="18" />
+    <option name="cachedIndexableFilesCount" value="17" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -57,59 +55,59 @@
     <decayedCancelled>
       <entry key="MS100" value="1.0" />
       <entry key="MS500" value="1.0" />
-      <entry key="S2" value="1.0000103993734581" />
-      <entry key="S5" value="1.0264340084793437" />
-      <entry key="S10" value="1.4113401226240967" />
-      <entry key="S30" value="3.80843579394048" />
-      <entry key="S60" value="5.762061591897673" />
-      <entry key="M2" value="7.69731546330812" />
-      <entry key="M5" value="12.99379374440765" />
-      <entry key="M10" value="21.07708405790873" />
-      <entry key="M15" value="26.59102133677139" />
-      <entry key="M30" value="34.97580340961285" />
-      <entry key="H1" value="40.75873264679636" />
-      <entry key="H2" value="44.17396163614176" />
-      <entry key="H4" value="46.03240383451342" />
-      <entry key="D1" value="47.664196046962324" />
-      <entry key="W1" value="47.9518313222381" />
+      <entry key="S2" value="1.0" />
+      <entry key="S5" value="1.0" />
+      <entry key="S10" value="1.0" />
+      <entry key="S30" value="1.0" />
+      <entry key="S60" value="1.0" />
+      <entry key="M2" value="1.0000000000000087" />
+      <entry key="M5" value="1.000016878204015" />
+      <entry key="M10" value="1.0310395557052465" />
+      <entry key="M15" value="1.4196226653878399" />
+      <entry key="M30" value="7.053322845274273" />
+      <entry key="H1" value="24.624601118579402" />
+      <entry key="H2" value="48.008715038756606" />
+      <entry key="H4" value="67.43306617778894" />
+      <entry key="D1" value="89.70874936913793" />
+      <entry key="W1" value="94.22501223969286" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="1.0365077560955384E-115" />
-      <entry key="MS500" value="1.0071972034310811E-23" />
-      <entry key="S2" value="1.7814704700587094E-6" />
-      <entry key="S5" value="0.0050154678531107695" />
-      <entry key="S10" value="0.07081996789826137" />
-      <entry key="S30" value="0.41373213496300215" />
-      <entry key="S60" value="0.64476365046733" />
-      <entry key="M2" value="0.8797763605803404" />
-      <entry key="M5" value="1.7405424330329402" />
-      <entry key="M10" value="2.772681351326669" />
-      <entry key="M15" value="3.3334808163671976" />
-      <entry key="M30" value="4.059322818529184" />
-      <entry key="H1" value="4.4991541206186865" />
-      <entry key="H2" value="4.741439095572034" />
-      <entry key="H4" value="4.868617408011898" />
-      <entry key="D1" value="4.977805011939746" />
-      <entry key="W1" value="4.996821913632234" />
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="0.0" />
+      <entry key="S5" value="0.0" />
+      <entry key="S10" value="3.569547906588006E-183" />
+      <entry key="S30" value="1.5282851936032622E-61" />
+      <entry key="S60" value="3.9094738324057587E-31" />
+      <entry key="M2" value="6.294183793676657E-16" />
+      <entry key="M5" value="1.0334255267336199E-6" />
+      <entry key="M10" value="0.001861170717319215" />
+      <entry key="M15" value="0.02572467310812492" />
+      <entry key="M30" value="0.38104916971458114" />
+      <entry key="H1" value="1.5016360807467306" />
+      <entry key="H2" value="2.9967594059043496" />
+      <entry key="H4" value="4.238680814938875" />
+      <entry key="D1" value="5.662061512745564" />
+      <entry key="W1" value="5.950507689260049" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.747660263228235E-8" />
-      <entry key="MS500" value="0.028086097706594673" />
-      <entry key="S2" value="0.4093867384535915" />
-      <entry key="S5" value="0.7282184196495981" />
-      <entry key="S10" value="1.2940699408659377" />
-      <entry key="S30" value="4.107518297000452" />
-      <entry key="S60" value="6.330994175070603" />
-      <entry key="M2" value="8.53036369553862" />
-      <entry key="M5" value="14.704829201107106" />
-      <entry key="M10" value="23.82851565523009" />
-      <entry key="M15" value="29.90791196540657" />
-      <entry key="M30" value="39.02522012231869" />
-      <entry key="H1" value="45.25243340193054" />
-      <entry key="H2" value="48.91253423212794" />
-      <entry key="H4" value="50.89955100725359" />
-      <entry key="D1" value="52.641750700772214" />
-      <entry key="W1" value="52.9486173377221" />
+      <entry key="MS100" value="0.5864174746159394" />
+      <entry key="MS500" value="0.8987551266110297" />
+      <entry key="S2" value="0.9736667628755977" />
+      <entry key="S5" value="0.9893823033619269" />
+      <entry key="S10" value="0.9946769844336034" />
+      <entry key="S30" value="0.9982225038573258" />
+      <entry key="S60" value="0.9991108566407062" />
+      <entry key="M2" value="0.9995553294544154" />
+      <entry key="M5" value="0.9998400102026653" />
+      <entry key="M10" value="1.0327999510705808" />
+      <entry key="M15" value="1.4451704611837384" />
+      <entry key="M30" value="7.433426159323362" />
+      <entry key="H1" value="26.124385888464225" />
+      <entry key="H2" value="51.00362180962811" />
+      <entry key="H4" value="71.67043426116429" />
+      <entry key="D1" value="95.37051812018545" />
+      <entry key="W1" value="100.17547596203309" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -126,6 +124,7 @@
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "Python.main.executor": "Run",
+    "Python.radar_ui.executor": "Run",
     "RunOnceActivity.MCP Project settings loaded": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
@@ -137,6 +136,7 @@
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "C:/Users/ASUS GAMING/Data_Structures_and_Algorithms_Graphs_and_BinaryTree/src",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -148,11 +148,14 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ASUS GAMING\Data_Structures_and_Algorithms_Graphs_and_BinaryTree\src" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\ASUS GAMING\Data_Structures_and_Algorithms_Graphs_and_BinaryTree\src" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.main">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Data_Structures_and_Algorithms_Graphs_and_BinaryTree" />
       <option name="ENV_FILES" value="" />
@@ -178,9 +181,35 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="radar_ui" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Data_Structures_and_Algorithms_Graphs_and_BinaryTree" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/visualizacion" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/visualizacion/radar_ui.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.main" />
+        <item itemvalue="Python.radar_ui" />
       </list>
     </recent_temporary>
   </component>
@@ -201,7 +230,8 @@
       <updated>1783218773106</updated>
       <workItem from="1783218774132" duration="957000" />
       <workItem from="1783219821141" duration="2844000" />
-      <workItem from="1783783381372" duration="2858000" />
+      <workItem from="1783783381372" duration="3394000" />
+      <workItem from="1783792516042" duration="7486000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <option name="closed" value="true" />
@@ -219,7 +249,23 @@
       <option name="project" value="LOCAL" />
       <updated>1783220138329</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Estructura_del_programa">
+      <option name="closed" value="true" />
+      <created>1783786617730</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1783786617731</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Estructura_del_programa">
+      <option name="closed" value="true" />
+      <created>1783786645879</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1783786645879</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -238,9 +284,11 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit" />
+    <MESSAGE value="Estructura_del_programa" />
+    <option name="LAST_COMMIT_MESSAGE" value="Estructura_del_programa" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Data_Structures_and_Algorithms_Graphs_and_BinaryTree$main.coverage" NAME="main Coverage Results" MODIFIED="1783785165014" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/Data_Structures_and_Algorithms_Graphs_and_BinaryTree$radar_ui.coverage" NAME="radar_ui Coverage Results" MODIFIED="1783801753969" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/visualizacion" />
+    <SUITE FILE_PATH="coverage/Data_Structures_and_Algorithms_Graphs_and_BinaryTree$main.coverage" NAME="main Coverage Results" MODIFIED="1783802011701" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
   </component>
 </project>

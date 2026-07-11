@@ -1,68 +1,82 @@
 import math
-import random
-import threading
 import time
+import random
 
 
-class AvionHilo(threading.Thread):
-    def __init__(self, id_vuelo, origen, destino, ruta, ui_queue):
-        super().__init__()
+class Avion:
+    def __init__(self, id_vuelo, origen_nombre, destino_nombre, ruta_coordenadas, cola_ui):
         self.id_vuelo = id_vuelo
-        self.ruta = ruta
-        self.ui_queue = ui_queue
-        self.x = ruta[0].x
-        self.y = ruta[0].y
-        self.velocidad = 2.0
-        self.daemon = True  # El hilo muere si se cierra la app
+        self.origen_nombre = origen_nombre
+        self.destino_nombre = destino_nombre
+        self.ruta = ruta_coordenadas
+        self.cola_ui = cola_ui
 
-    def run(self):
-        self.enviar_log(f"Despegando de {self.ruta[0].nombre} hacia {self.ruta[-1].nombre}")
+        self.x = self.ruta[0]['x']
+        self.y = self.ruta[0]['y']
+        self.velocidad = 2.0
+
+    def ejecutar_vuelo(self):
+        self.enviar_log(f"Despegando de {self.origen_nombre} hacia {self.destino_nombre}")
 
         for i in range(1, len(self.ruta)):
-            nodo_destino = self.ruta[i]
-            self.volar_hacia(nodo_destino)
+            waypoint_destino = self.ruta[i]
+            self.volar_hacia(waypoint_destino)
 
-            # Si llegó al nodo y es el destino final (Aeropuerto)
-            if i == len(self.ruta) - 1 and nodo_destino.es_aeropuerto:
-                self.enviar_log(f"Llegando a Zona de Control: {nodo_destino.nombre}")
-                self.evaluar_arbol_aterrizaje(nodo_destino.arbol_aterrizaje)
+            if i == len(self.ruta) - 1 and waypoint_destino['es_aeropuerto']:
+                self.enviar_log(f"Llegando a Zona de Control: {waypoint_destino['nombre']}")
+
+                self.evaluar_arbol_aterrizaje(waypoint_destino['arbol'], waypoint_destino['x'], waypoint_destino['y'])
             else:
-                self.enviar_log(f"Cruzando waypoint: {nodo_destino.nombre}")
+                self.enviar_log(f"Cruzando waypoint: {waypoint_destino['nombre']}")
                 time.sleep(0.5)
 
-    def volar_hacia(self, nodo_destino):
-        distancia = math.hypot(nodo_destino.x - self.x, nodo_destino.y - self.y)
+    def volar_hacia(self, destino):
+        distancia = math.hypot(destino['x'] - self.x, destino['y'] - self.y)
         while distancia > self.velocidad:
-            dx = (nodo_destino.x - self.x) / distancia
-            dy = (nodo_destino.y - self.y) / distancia
+            dx = (destino['x'] - self.x) / distancia
+            dy = (destino['y'] - self.y) / distancia
             self.x += dx * self.velocidad
             self.y += dy * self.velocidad
 
-            # Enviar posición a la GUI a través de la cola (Thread-safe)
-            self.ui_queue.put({"tipo": "posicion", "id": self.id_vuelo, "x": self.x, "y": self.y})
-            time.sleep(0.05)  # Tasa de actualización (Simula el tiempo de vuelo)
-            distancia = math.hypot(nodo_destino.x - self.x, nodo_destino.y - self.y)
+            self.cola_ui.put({"tipo": "posicion", "id": self.id_vuelo, "x": self.x, "y": self.y, "estado": "volando"})
+            time.sleep(0.05)
+            distancia = math.hypot(destino['x'] - self.x, destino['y'] - self.y)
 
-    def evaluar_arbol_aterrizaje(self, nodo_arbol):
-        """Recorre el árbol de decisión conectado al grafo."""
-        self.enviar_log("--- Iniciando Árbol de Aproximación ---")
-        actual = nodo_arbol
-        while not actual.es_hoja:
-            self.enviar_log(f"Evaluando: {actual.pregunta}")
-            time.sleep(1.5)  # Pausa para simular procesamiento/comunicación
+    def volar_en_circulos(self, cx, cy, radio=15, vueltas=2):
 
-            # Simulamos una condición aleatoria para el árbol
-            respuesta = random.choice([True, True, True, False])  # Más probabilidad de éxito
+        pasos = 40
+        for _ in range(vueltas):
+            for i in range(pasos):
+                angulo = (i / pasos) * 2 * math.pi
+                self.x = cx + radio * math.cos(angulo)
+                self.y = cy + radio * math.sin(angulo)
+                self.cola_ui.put(
+                    {"tipo": "posicion", "id": self.id_vuelo, "x": self.x, "y": self.y, "estado": "espera"})
+                time.sleep(0.05)
 
-            if respuesta:
-                self.enviar_log("-> Respuesta: SÍ")
-                actual = actual.si_nodo
-            else:
-                self.enviar_log("-> Respuesta: NO")
-                actual = actual.no_nodo
+    def evaluar_arbol_aterrizaje(self, nodo_arbol, cx, cy):
+        self.enviar_log("--- Contactando Torre para Aproximación ---")
+        aterrizado = False
 
-        self.enviar_log(f"RESULTADO ÁRBOL: {actual.resultado}")
-        self.ui_queue.put({"tipo": "finalizado", "id": self.id_vuelo})
+        while not aterrizado:
+            actual = nodo_arbol
+            while actual and not actual.es_hoja:
+                time.sleep(0.5)
+
+                respuesta = random.random() < 0.6
+                actual = actual.si_nodo if respuesta else actual.no_nodo
+
+            if actual:
+                self.enviar_log(f"RESULTADO ÁRBOL: {actual.resultado}")
+                if "espera" in actual.resultado.lower() or "desvío" in actual.resultado.lower():
+                    self.enviar_log("Pista ocupada. Entrando en patrón de espera (Orbitando)...")
+                    self.volar_en_circulos(cx, cy, radio=18, vueltas=2)
+                    self.enviar_log("Reevaluando condiciones de aterrizaje...")
+                else:
+                    self.enviar_log("Aterrizaje exitoso. Bienvenido.")
+                    aterrizado = True
+
+        self.cola_ui.put({"tipo": "finalizado", "id": self.id_vuelo})
 
     def enviar_log(self, mensaje):
-        self.ui_queue.put({"tipo": "log", "mensaje": f"[{self.id_vuelo}] {mensaje}"})
+        self.cola_ui.put({"tipo": "log", "mensaje": f"[{self.id_vuelo}] {mensaje}"})
