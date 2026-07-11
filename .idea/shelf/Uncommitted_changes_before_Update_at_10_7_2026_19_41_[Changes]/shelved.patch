@@ -1,0 +1,153 @@
+Index: src/logic/map_Graph.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/logic/map_Graph.py b/src/logic/map_Graph.py
+--- a/src/logic/map_Graph.py	(revision bfaabdcd273c5752fb7a8f8e82f85540edae524d)
++++ b/src/logic/map_Graph.py	(date 1783227289522)
+@@ -1,0 +1,47 @@
++class Habitacion:
++    def __init__(self, id_hab, nombre, descripcion, recompensa_nombre=None, recompensa_poder=0):
++        self.id_hab = id_hab
++        self.nombre = nombre
++        self.descripcion = descripcion
++        self.recompensa_nombre = recompensa_nombre
++        self.recompensa_poder = recompensa_poder
++
++        self.puertas = {}
++    def agregar_puerta(self, id_destino, descripcion_opcion):
++        self.puertas[id_destino] = descripcion_opcion
++
++
++
++
++class map_Graph:
++    def __init__(self):
++        self.habitaciones = {}
++
++    def agregarHabitacion(self, habitacion):
++        self.habitaciones[habitacion.id_hab] = habitacion
++
++    if __name__ == '__main__':
++        mapa = map_Graph()
++        hab_inicio = Habitacion("INICIO", "Entrada a la Mazmorra", "Frente a ti hay dos pasillos oscuros.")
++        hab_izq = Habitacion("IZQ", "Sala del Fuego", "El calor es insoportable.", "Espada de Fuego", 50)
++        hab_der = Habitacion("DER", "Cueva del Duende", "Escuchas risas macabras.", "Escudo de Madera", 15)
++        hab_jefe = Habitacion("JEFE", "Guarida del Dragón", "El jefe final te espera.")
++
++        # 3. Crear las aristas (Conectar con agregar_puerta)
++        hab_inicio.agregar_puerta("IZQ", "Ir por el pasillo izquierdo (Huele a quemado)")
++        hab_inicio.agregar_puerta("DER", "Ir por el pasillo derecho (Hay huellas en el suelo)")
++
++        hab_izq.agregar_puerta("JEFE", "Abrir la gran puerta de obsidiana")
++        hab_der.agregar_puerta("JEFE", "Bajar por las escaleras caracol")
++
++        # 4. Guardar los nodos en el grafo
++        mapa.agregar_habitacion(hab_inicio)
++        mapa.agregar_habitacion(hab_izq)
++        mapa.agregar_habitacion(hab_der)
++        mapa.agregar_habitacion(hab_jefe)
++
++        # 5. Probar que la estructura funciona
++        inicio = mapa.habitaciones["INICIO"]
++        print(f"--- {inicio.nombre} ---")
++        for destino, opcion in inicio.puertas.items():
++            print(f"Opción: {opcion} -> Te lleva a: {destino}")
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"ALL\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"36b94352-f6f6-4853-aff5-ec2e393b712b\" name=\"Changes\" comment=\"commit\">\r\n      <change afterPath=\"$PROJECT_DIR$/src/logica/__init__.py\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/logica/inventory_BinarySearchTree.py\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/logica/map_Graph.py\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/main.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main.py\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"EmbeddingIndexingInfo\">\r\n    <option name=\"cachedIndexableFilesCount\" value=\"5\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Python Script\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\"><![CDATA[{\r\n  \"lastFilter\": {\r\n    \"state\": \"OPEN\",\r\n    \"assignee\": \"dannstrak\"\r\n  }\r\n}]]></component>\r\n  <component name=\"GithubDefaultAccount\">\r\n    <option name=\"defaultAccountId\" value=\"9821200b-d50e-4fdf-8f3a-9cf33cd965d6\" />\r\n  </component>\r\n  <component name=\"GithubPullRequestsUISettings\"><![CDATA[{\r\n  \"selectedUrlAndAccountId\": {\r\n    \"url\": \"https://github.com/dannstrak/Graphs_and_BinaryTree.git\",\r\n    \"accountId\": \"9821200b-d50e-4fdf-8f3a-9cf33cd965d6\"\r\n  }\r\n}]]></component>\r\n  <component name=\"McpProjectServerCommands\">\r\n    <commands />\r\n    <urls />\r\n  </component>\r\n  <component name=\"NextEditCompletionFeaturesState\">\r\n    <decayedCancelled>\r\n      <entry key=\"MS100\" value=\"1.008549170947091\" />\r\n      <entry key=\"MS500\" value=\"1.4107162784676033\" />\r\n      <entry key=\"S2\" value=\"2.4477714413932983\" />\r\n      <entry key=\"S5\" value=\"3.1911620475190827\" />\r\n      <entry key=\"S10\" value=\"3.554471787593396\" />\r\n      <entry key=\"S30\" value=\"3.841193097409076\" />\r\n      <entry key=\"S60\" value=\"3.9192289770914805\" />\r\n      <entry key=\"M2\" value=\"3.9592662500694504\" />\r\n      <entry key=\"M5\" value=\"3.98362209669879\" />\r\n      <entry key=\"M10\" value=\"3.991796911700724\" />\r\n      <entry key=\"M15\" value=\"3.9945281278258666\" />\r\n      <entry key=\"M30\" value=\"3.9972624892993114\" />\r\n      <entry key=\"H1\" value=\"3.9986308507536252\" />\r\n      <entry key=\"H2\" value=\"3.99931532687246\" />\r\n      <entry key=\"H4\" value=\"3.999657638806348\" />\r\n      <entry key=\"D1\" value=\"3.9999429363799197\" />\r\n      <entry key=\"W1\" value=\"3.9999918479704872\" />\r\n    </decayedCancelled>\r\n    <decayedSelected>\r\n      <entry key=\"MS100\" value=\"0.0\" />\r\n      <entry key=\"MS500\" value=\"0.0\" />\r\n      <entry key=\"S2\" value=\"0.0\" />\r\n      <entry key=\"S5\" value=\"0.0\" />\r\n      <entry key=\"S10\" value=\"0.0\" />\r\n      <entry key=\"S30\" value=\"0.0\" />\r\n      <entry key=\"S60\" value=\"0.0\" />\r\n      <entry key=\"M2\" value=\"0.0\" />\r\n      <entry key=\"M5\" value=\"0.0\" />\r\n      <entry key=\"M10\" value=\"0.0\" />\r\n      <entry key=\"M15\" value=\"0.0\" />\r\n      <entry key=\"M30\" value=\"0.0\" />\r\n      <entry key=\"H1\" value=\"0.0\" />\r\n      <entry key=\"H2\" value=\"0.0\" />\r\n      <entry key=\"H4\" value=\"0.0\" />\r\n      <entry key=\"D1\" value=\"0.0\" />\r\n      <entry key=\"W1\" value=\"0.0\" />\r\n    </decayedSelected>\r\n    <decayedShown>\r\n      <entry key=\"MS100\" value=\"0.9542019117159566\" />\r\n      <entry key=\"MS500\" value=\"1.3942470443833355\" />\r\n      <entry key=\"S2\" value=\"2.4277958775698005\" />\r\n      <entry key=\"S5\" value=\"3.1765848514539776\" />\r\n      <entry key=\"S10\" value=\"3.545447773324576\" />\r\n      <entry key=\"S30\" value=\"3.83771492034261\" />\r\n      <entry key=\"S60\" value=\"3.9174250076134194\" />\r\n      <entry key=\"M2\" value=\"3.9583475521426257\" />\r\n      <entry key=\"M5\" value=\"3.9832505417226804\" />\r\n      <entry key=\"M10\" value=\"3.9916104494595652\" />\r\n      <entry key=\"M15\" value=\"3.994403667091512\" />\r\n      <entry key=\"M30\" value=\"3.997200182543558\" />\r\n      <entry key=\"H1\" value=\"3.9985996782594992\" />\r\n      <entry key=\"H2\" value=\"3.9992997358439437\" />\r\n      <entry key=\"H4\" value=\"3.999649842096428\" />\r\n      <entry key=\"D1\" value=\"3.9999416367621765\" />\r\n      <entry key=\"W1\" value=\"3.999991662306741\" />\r\n    </decayedShown>\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 5,\r\n  &quot;fromUser&quot;: false\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"3G471awSiH1GsBG1HasIeg81OEb\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,\r\n    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;master&quot;,\r\n    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,\r\n    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,\r\n    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\ASUS GAMING\\Data_Structures_and_Algorithms_Graphs_and_BinaryTree\\src\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-PY-261.26222.68\" />\r\n        <option value=\"bundled-python-sdk-50341a9f1f9c-c2ffad84badb-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-261.26222.68\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"36b94352-f6f6-4853-aff5-ec2e393b712b\" name=\"Changes\" comment=\"\" />\r\n      <created>1783218773106</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1783218773106</updated>\r\n      <workItem from=\"1783218774132\" duration=\"957000\" />\r\n      <workItem from=\"1783219821141\" duration=\"2844000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"commit\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1783219633000</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1783219633000</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"commit\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1783220138329</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1783220138329</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"3\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"commit\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"commit\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <line-breakpoint enabled=\"true\" suspend=\"THREAD\" type=\"python-line\">\r\n          <url>file://$PROJECT_DIR$/src/main.py</url>\r\n          <line>8</line>\r\n          <option name=\"timeStamp\" value=\"1\" />\r\n        </line-breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision bfaabdcd273c5752fb7a8f8e82f85540edae524d)
++++ b/.idea/workspace.xml	(date 1783712015057)
+@@ -4,12 +4,9 @@
+     <option name="autoReloadType" value="ALL" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="36b94352-f6f6-4853-aff5-ec2e393b712b" name="Changes" comment="commit">
+-      <change afterPath="$PROJECT_DIR$/src/logica/__init__.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/logica/inventory_BinarySearchTree.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/logica/map_Graph.py" afterDir="false" />
++    <list default="true" id="36b94352-f6f6-4853-aff5-ec2e393b712b" name="Changes" comment="Estructura_del_programa">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/logic/map_Graph.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/map_Graph.py" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -29,21 +26,21 @@
+   <component name="Git.Settings">
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
+-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+-  "lastFilter": {
+-    "state": "OPEN",
+-    "assignee": "dannstrak"
++  <component name="GitHubPullRequestSearchHistory">{
++  &quot;lastFilter&quot;: {
++    &quot;state&quot;: &quot;OPEN&quot;,
++    &quot;assignee&quot;: &quot;dannstrak&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="GithubDefaultAccount">
+     <option name="defaultAccountId" value="9821200b-d50e-4fdf-8f3a-9cf33cd965d6" />
+   </component>
+-  <component name="GithubPullRequestsUISettings"><![CDATA[{
+-  "selectedUrlAndAccountId": {
+-    "url": "https://github.com/dannstrak/Graphs_and_BinaryTree.git",
+-    "accountId": "9821200b-d50e-4fdf-8f3a-9cf33cd965d6"
++  <component name="GithubPullRequestsUISettings">{
++  &quot;selectedUrlAndAccountId&quot;: {
++    &quot;url&quot;: &quot;https://github.com/dannstrak/Graphs_and_BinaryTree.git&quot;,
++    &quot;accountId&quot;: &quot;9821200b-d50e-4fdf-8f3a-9cf33cd965d6&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="McpProjectServerCommands">
+     <commands />
+     <urls />
+@@ -162,7 +159,10 @@
+       <option name="presentableId" value="Default" />
+       <updated>1783218773106</updated>
+       <workItem from="1783218774132" duration="957000" />
+-      <workItem from="1783219821141" duration="2844000" />
++      <workItem from="1783219821141" duration="6128000" />
++      <workItem from="1783295230846" duration="1891000" />
++      <workItem from="1783540047496" duration="756000" />
++      <workItem from="1783711946498" duration="69000" />
+     </task>
+     <task id="LOCAL-00001" summary="commit">
+       <option name="closed" value="true" />
+@@ -180,7 +180,15 @@
+       <option name="project" value="LOCAL" />
+       <updated>1783220138329</updated>
+     </task>
+-    <option name="localTasksCounter" value="3" />
++    <task id="LOCAL-00003" summary="Estructura_del_programa">
++      <option name="closed" value="true" />
++      <created>1783223670692</created>
++      <option name="number" value="00003" />
++      <option name="presentableId" value="LOCAL-00003" />
++      <option name="project" value="LOCAL" />
++      <updated>1783223670692</updated>
++    </task>
++    <option name="localTasksCounter" value="4" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -199,7 +207,8 @@
+   </component>
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="commit" />
+-    <option name="LAST_COMMIT_MESSAGE" value="commit" />
++    <MESSAGE value="Estructura_del_programa" />
++    <option name="LAST_COMMIT_MESSAGE" value="Estructura_del_programa" />
+   </component>
+   <component name="XDebuggerManager">
+     <breakpoint-manager>

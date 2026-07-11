@@ -4,8 +4,17 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36b94352-f6f6-4853-aff5-ec2e393b712b" name="Changes" comment="commit">
-      <change afterPath="$PROJECT_DIR$/prototype.py" afterDir="false" />
+    <list default="true" id="36b94352-f6f6-4853-aff5-ec2e393b712b" name="Changes" comment="Estructura_del_programa">
+      <change beforePath="$PROJECT_DIR$/.idea/Data_Structures_and_Algorithms_Graphs_and_BinaryTree.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Data_Structures_and_Algorithms_Graphs_and_BinaryTree.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/engine/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/concurrencia/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/engine/process.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/concurrencia/avion.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/logica/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/inventory_BinarySearchTree.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/logica/aproximacion.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/map_Graph.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/logica/espacio_aereo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/visualizacion/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/windows.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/visualizacion/radar_ui.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,7 +22,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="5" />
+    <option name="cachedIndexableFilesCount" value="18" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -31,6 +40,9 @@
     &quot;assignee&quot;: &quot;dannstrak&quot;
   }
 }</component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="9821200b-d50e-4fdf-8f3a-9cf33cd965d6" />
+  </component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/dannstrak/Graphs_and_BinaryTree.git&quot;,
@@ -43,61 +55,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.008549170947091" />
-      <entry key="MS500" value="1.4107162784676033" />
-      <entry key="S2" value="2.4477714413932983" />
-      <entry key="S5" value="3.1911620475190827" />
-      <entry key="S10" value="3.554471787593396" />
-      <entry key="S30" value="3.841193097409076" />
-      <entry key="S60" value="3.9192289770914805" />
-      <entry key="M2" value="3.9592662500694504" />
-      <entry key="M5" value="3.98362209669879" />
-      <entry key="M10" value="3.991796911700724" />
-      <entry key="M15" value="3.9945281278258666" />
-      <entry key="M30" value="3.9972624892993114" />
-      <entry key="H1" value="3.9986308507536252" />
-      <entry key="H2" value="3.99931532687246" />
-      <entry key="H4" value="3.999657638806348" />
-      <entry key="D1" value="3.9999429363799197" />
-      <entry key="W1" value="3.9999918479704872" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0000103993734581" />
+      <entry key="S5" value="1.0264340084793437" />
+      <entry key="S10" value="1.4113401226240967" />
+      <entry key="S30" value="3.80843579394048" />
+      <entry key="S60" value="5.762061591897673" />
+      <entry key="M2" value="7.69731546330812" />
+      <entry key="M5" value="12.99379374440765" />
+      <entry key="M10" value="21.07708405790873" />
+      <entry key="M15" value="26.59102133677139" />
+      <entry key="M30" value="34.97580340961285" />
+      <entry key="H1" value="40.75873264679636" />
+      <entry key="H2" value="44.17396163614176" />
+      <entry key="H4" value="46.03240383451342" />
+      <entry key="D1" value="47.664196046962324" />
+      <entry key="W1" value="47.9518313222381" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="0.0" />
-      <entry key="S2" value="0.0" />
-      <entry key="S5" value="0.0" />
-      <entry key="S10" value="0.0" />
-      <entry key="S30" value="0.0" />
-      <entry key="S60" value="0.0" />
-      <entry key="M2" value="0.0" />
-      <entry key="M5" value="0.0" />
-      <entry key="M10" value="0.0" />
-      <entry key="M15" value="0.0" />
-      <entry key="M30" value="0.0" />
-      <entry key="H1" value="0.0" />
-      <entry key="H2" value="0.0" />
-      <entry key="H4" value="0.0" />
-      <entry key="D1" value="0.0" />
-      <entry key="W1" value="0.0" />
+      <entry key="MS100" value="1.0365077560955384E-115" />
+      <entry key="MS500" value="1.0071972034310811E-23" />
+      <entry key="S2" value="1.7814704700587094E-6" />
+      <entry key="S5" value="0.0050154678531107695" />
+      <entry key="S10" value="0.07081996789826137" />
+      <entry key="S30" value="0.41373213496300215" />
+      <entry key="S60" value="0.64476365046733" />
+      <entry key="M2" value="0.8797763605803404" />
+      <entry key="M5" value="1.7405424330329402" />
+      <entry key="M10" value="2.772681351326669" />
+      <entry key="M15" value="3.3334808163671976" />
+      <entry key="M30" value="4.059322818529184" />
+      <entry key="H1" value="4.4991541206186865" />
+      <entry key="H2" value="4.741439095572034" />
+      <entry key="H4" value="4.868617408011898" />
+      <entry key="D1" value="4.977805011939746" />
+      <entry key="W1" value="4.996821913632234" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.9542019117159566" />
-      <entry key="MS500" value="1.3942470443833355" />
-      <entry key="S2" value="2.4277958775698005" />
-      <entry key="S5" value="3.1765848514539776" />
-      <entry key="S10" value="3.545447773324576" />
-      <entry key="S30" value="3.83771492034261" />
-      <entry key="S60" value="3.9174250076134194" />
-      <entry key="M2" value="3.9583475521426257" />
-      <entry key="M5" value="3.9832505417226804" />
-      <entry key="M10" value="3.9916104494595652" />
-      <entry key="M15" value="3.994403667091512" />
-      <entry key="M30" value="3.997200182543558" />
-      <entry key="H1" value="3.9985996782594992" />
-      <entry key="H2" value="3.9992997358439437" />
-      <entry key="H4" value="3.999649842096428" />
-      <entry key="D1" value="3.9999416367621765" />
-      <entry key="W1" value="3.999991662306741" />
+      <entry key="MS100" value="1.747660263228235E-8" />
+      <entry key="MS500" value="0.028086097706594673" />
+      <entry key="S2" value="0.4093867384535915" />
+      <entry key="S5" value="0.7282184196495981" />
+      <entry key="S10" value="1.2940699408659377" />
+      <entry key="S30" value="4.107518297000452" />
+      <entry key="S60" value="6.330994175070603" />
+      <entry key="M2" value="8.53036369553862" />
+      <entry key="M5" value="14.704829201107106" />
+      <entry key="M10" value="23.82851565523009" />
+      <entry key="M15" value="29.90791196540657" />
+      <entry key="M30" value="39.02522012231869" />
+      <entry key="H1" value="45.25243340193054" />
+      <entry key="H2" value="48.91253423212794" />
+      <entry key="H4" value="50.89955100725359" />
+      <entry key="D1" value="52.641750700772214" />
+      <entry key="W1" value="52.9486173377221" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -113,6 +125,7 @@
   "keyToString": {
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.main.executor": "Run",
     "RunOnceActivity.MCP Project settings loaded": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
@@ -124,7 +137,6 @@
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "C:/Users/vemom/Desktop/EPN/ProyectoFinalEDA",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -136,17 +148,47 @@
   }
 }]]></component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\vemom\Desktop\EPN\ProyectoFinalEDA" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\ASUS GAMING\Data_Structures_and_Algorithms_Graphs_and_BinaryTree\src" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Data_Structures_and_Algorithms_Graphs_and_BinaryTree" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-245168a56dbd-c2ffad84badb-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-261.25134.203" />
+        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-PY-261.26222.68" />
+        <option value="bundled-python-sdk-50341a9f1f9c-c2ffad84badb-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-261.26222.68" />
       </set>
     </attachedChunks>
   </component>
@@ -159,7 +201,7 @@
       <updated>1783218773106</updated>
       <workItem from="1783218774132" duration="957000" />
       <workItem from="1783219821141" duration="2844000" />
-      <workItem from="1783641350060" duration="332000" />
+      <workItem from="1783783381372" duration="2858000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <option name="closed" value="true" />
@@ -198,15 +240,7 @@
     <MESSAGE value="commit" />
     <option name="LAST_COMMIT_MESSAGE" value="commit" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/src/main.py</url>
-          <line>8</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Data_Structures_and_Algorithms_Graphs_and_BinaryTree$main.coverage" NAME="main Coverage Results" MODIFIED="1783785165014" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
   </component>
 </project>

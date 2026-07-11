@@ -1,16 +1,28 @@
-# This is a sample Python script.
+import tkinter as tk
+from Prototype import GrafoATC, NodoGrafo, InterfazRadar
 
-# Press Mayús+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+if __name__ == "__main__":
+    # 1. Configurar la red espacial (Grafo)
+    red_atc = GrafoATC()
 
+    n_quito = NodoGrafo("Quito", 300, 100, es_aeropuerto=True)
+    n_latacunga = NodoGrafo("Latacunga (WP)", 300, 200)
+    n_manta = NodoGrafo("Manta (WP)", 100, 250)
+    n_guayaquil = NodoGrafo("Guayaquil", 150, 400, es_aeropuerto=True)
+    n_cuenca = NodoGrafo("Cuenca (WP)", 400, 350)
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+    # 2. Conectar las aerovías (Aristas)
+    n_quito.agregar_vecino(n_latacunga)
+    n_latacunga.agregar_vecino(n_guayaquil)
+    n_quito.agregar_vecino(n_manta)
+    n_manta.agregar_vecino(n_guayaquil)
+    n_latacunga.agregar_vecino(n_cuenca)
+    n_cuenca.agregar_vecino(n_guayaquil)
 
+    for n in [n_quito, n_latacunga, n_manta, n_guayaquil, n_cuenca]:
+        red_atc.agregar_nodo(n)
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    # 3. Lanzar la interfaz gráfica
+    ventana = tk.Tk()
+    app = InterfazRadar(ventana, red_atc)
+    ventana.mainloop()
