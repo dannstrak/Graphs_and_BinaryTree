@@ -79,4 +79,4 @@ class Avion:
         self.cola_ui.put({"tipo": "finalizado", "id": self.id_vuelo})
 
     def enviar_log(self, mensaje):
-        self.cola_ui.put({"tipo": "log", "mensaje": f"[{self.id_vuelo}] {mensaje}"})
+        self.cola_ui.put({"tipo": "log", "id": self.id_vuelo, "mensaje": f"[{self.id_vuelo}] {mensaje}", "detalle": mensaje})

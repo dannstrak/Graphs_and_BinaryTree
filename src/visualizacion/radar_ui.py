@@ -2,6 +2,7 @@ import customtkinter as ctk
 import tkinter as tk
 import queue
 import os
+import time
 from PIL import Image, ImageTk
 
 class InterfazRadar:
@@ -18,6 +19,7 @@ class InterfazRadar:
         self.aviones_ui = {}
         self.etiquetas_ui = {}
         self.contador_vuelos = 1
+        self.historial_vuelos = {}
 
         self.main_frame = ctk.CTkFrame(self.root, fg_color="#050a05")
         self.main_frame.pack(fill=tk.BOTH, expand=True, padx=10, pady=10)
@@ -52,7 +54,28 @@ class InterfazRadar:
 
         self.consola = ctk.CTkTextbox(self.control_frame, font=("Consolas", 12), fg_color="#000000",
                                       text_color="#00ff41", border_width=1, border_color="#004d00")
-        self.consola.pack(fill=tk.BOTH, expand=True, padx=20, pady=(0, 20))
+        self.consola.pack(fill=tk.BOTH, expand=True, padx=20, pady=(0, 10))
+
+        ctk.CTkFrame(self.control_frame, height=2, fg_color="#00ff41").pack(fill=tk.X, padx=20, pady=10)
+
+        self.lbl_buscar = ctk.CTkLabel(self.control_frame, text="CONSULTAR TRAYECTORIA DE VUELO:",
+                                       font=("Consolas", 14, "bold"), text_color="#00ff41")
+        self.lbl_buscar.pack(anchor="w", padx=20, pady=(0, 5))
+
+        self.frame_buscar = ctk.CTkFrame(self.control_frame, fg_color="transparent")
+        self.frame_buscar.pack(fill=tk.X, padx=20, pady=(0, 20))
+
+        self.entry_buscar_vuelo = ctk.CTkEntry(self.frame_buscar, placeholder_text="Ej: UIO001",
+                                               font=("Consolas", 13), fg_color="#000000",
+                                               text_color="#00ff41", border_color="#004d00")
+        self.entry_buscar_vuelo.pack(side=tk.LEFT, fill=tk.X, expand=True, padx=(0, 10))
+        self.entry_buscar_vuelo.bind("<Return>", lambda evento: self.buscar_vuelo())
+
+        self.btn_buscar_vuelo = ctk.CTkButton(self.frame_buscar, text="🔍 Buscar", width=90,
+                                              command=self.buscar_vuelo,
+                                              font=("Consolas", 13, "bold"), fg_color="#004d00",
+                                              hover_color="#00cc00")
+        self.btn_buscar_vuelo.pack(side=tk.LEFT)
 
         self.mapa_imagen = None
         self.root.after(100, self.configurar_fondo)
@@ -129,6 +152,15 @@ class InterfazRadar:
         self.consola.insert(tk.END, f"[Torre] Vuelo {id_vuelo} enrutado por: {ruta_texto}\n")
         self.consola.see(tk.END)
 
+        self.historial_vuelos[id_vuelo] = {
+            "origen": origen,
+            "destino": destino,
+            "ruta": [n.nombre for n in ruta_nodos],
+            "eventos_clima": list(eventos_clima),
+            "decisiones": [],
+            "estado": "En vuelo",
+        }
+
         ruta_limpia = [
             {'x': n.x, 'y': n.y, 'nombre': n.nombre, 'es_aeropuerto': n.es_aeropuerto, 'arbol': n.arbol_aterrizaje} for
             n in ruta_nodos]
@@ -143,6 +175,12 @@ class InterfazRadar:
                 if mensaje["tipo"] == "log":
                     self.consola.insert(tk.END, mensaje["mensaje"] + "\n")
                     self.consola.see(tk.END)
+
+                    v_id = mensaje.get("id")
+                    if v_id and v_id in self.historial_vuelos:
+                        marca_tiempo = time.strftime("%H:%M:%S")
+                        detalle = mensaje.get("detalle", mensaje["mensaje"])
+                        self.historial_vuelos[v_id]["decisiones"].append(f"[{marca_tiempo}] {detalle}")
 
                 elif mensaje["tipo"] == "posicion":
                     v_id = mensaje["id"]
@@ -167,8 +205,62 @@ class InterfazRadar:
                     if v_id in self.aviones_ui:
                         self.canvas.itemconfig(self.aviones_ui[v_id], fill="#ff0000")
                         self.canvas.itemconfig(self.etiquetas_ui[v_id], fill="#ff0000")
+                    if v_id in self.historial_vuelos:
+                        self.historial_vuelos[v_id]["estado"] = "Aterrizado"
 
         except queue.Empty:
             pass
 
         self.root.after(40, self.procesar_cola)
+
+    def buscar_vuelo(self):
+        id_vuelo = self.entry_buscar_vuelo.get().strip().upper()
+        if not id_vuelo:
+            return
+
+        historial = self.historial_vuelos.get(id_vuelo)
+        if not historial:
+            self.consola.insert(tk.END, f"[Sistema] No se encontró el vuelo '{id_vuelo}'.\n")
+            self.consola.see(tk.END)
+            return
+
+        self.mostrar_historial_vuelo(id_vuelo, historial)
+
+    def mostrar_historial_vuelo(self, id_vuelo, historial):
+        ventana = ctk.CTkToplevel(self.root)
+        ventana.title(f"Trayectoria del vuelo {id_vuelo}")
+        ventana.geometry("600x500")
+        ventana.configure(fg_color="#050a05")
+        ventana.attributes("-topmost", True)
+
+        lbl_encabezado = ctk.CTkLabel(
+            ventana,
+            text=f"VUELO {id_vuelo}  |  {historial['origen']} → {historial['destino']}  |  Estado: {historial['estado']}",
+            font=("Consolas", 14, "bold"), text_color="#00ff41", wraplength=560, justify="left"
+        )
+        lbl_encabezado.pack(anchor="w", padx=15, pady=(15, 5))
+
+        lbl_ruta = ctk.CTkLabel(
+            ventana, text="Ruta: " + " -> ".join(historial["ruta"]),
+            font=("Consolas", 12), text_color="#00ff41", wraplength=560, justify="left"
+        )
+        lbl_ruta.pack(anchor="w", padx=15, pady=(0, 10))
+
+        texto_historial = ctk.CTkTextbox(ventana, font=("Consolas", 12), fg_color="#000000",
+                                         text_color="#00ff41", border_width=1, border_color="#004d00")
+        texto_historial.pack(fill=tk.BOTH, expand=True, padx=15, pady=(0, 15))
+
+        if historial["eventos_clima"]:
+            texto_historial.insert(tk.END, "--- Meteorología al momento del despacho ---\n")
+            for evento in historial["eventos_clima"]:
+                texto_historial.insert(tk.END, f"[Meteorología] {evento}\n")
+            texto_historial.insert(tk.END, "\n")
+
+        texto_historial.insert(tk.END, "--- Decisiones tomadas durante la trayectoria ---\n")
+        if historial["decisiones"]:
+            for decision in historial["decisiones"]:
+                texto_historial.insert(tk.END, decision + "\n")
+        else:
+            texto_historial.insert(tk.END, "Aún no hay decisiones registradas para este vuelo.\n")
+
+        texto_historial.configure(state="disabled")
