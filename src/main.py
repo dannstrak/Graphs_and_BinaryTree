@@ -14,11 +14,11 @@ if __name__ == "__main__":
 
     red_atc = GrafoATC()
 
-    n_quito = NodoGrafo("Quito", 300, 100, es_aeropuerto=True)
-    n_latacunga = NodoGrafo("Latacunga (WP)", 300, 200)
-    n_manta = NodoGrafo("Manta (WP)", 100, 250)
-    n_guayaquil = NodoGrafo("Guayaquil", 150, 400, es_aeropuerto=True)
-    n_cuenca = NodoGrafo("Cuenca (WP)", 400, 350)
+    n_quito = NodoGrafo("Quito", 570, 270, es_aeropuerto=True)
+    n_latacunga = NodoGrafo("Latacunga (WP)", 502, 403)
+    n_manta = NodoGrafo("Manta (WP)", 175, 362)
+    n_guayaquil = NodoGrafo("Guayaquil", 273, 505, es_aeropuerto=True)
+    n_cuenca = NodoGrafo("Cuenca (WP)", 415, 668)
 
     n_quito.agregar_vecino(n_latacunga)
     n_latacunga.agregar_vecino(n_guayaquil)

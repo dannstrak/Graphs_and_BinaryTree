@@ -4,6 +4,51 @@ import queue
 import os
 from PIL import Image, ImageTk
 
+class ToolTip:
+    def __init__(self, widget, text, bg="#1a1a1a", fg="#ffffff", border_color="#00ff41"):
+        self.widget = widget
+        self.text = text
+        self.bg = bg
+        self.fg = fg
+        self.border_color = border_color
+        self.tooltip_window = None
+
+        self.widget.bind("<Enter>", self.show_tooltip)
+        self.widget.bind("<Leave>", self.hide_tooltip)
+
+    def show_tooltip(self, event=None):
+        if self.tooltip_window or not self.text:
+            return
+
+
+        x = self.widget.winfo_rootx()
+        y = self.widget.winfo_rooty()
+
+        self.tooltip_window = tk.Toplevel(self.widget)
+        self.tooltip_window.wm_overrideredirect(True)
+
+        self.tooltip_window.configure(bg=self.border_color)
+
+        frame = tk.Frame(self.tooltip_window, bg=self.bg, padx=1, pady=1)
+        frame.pack(padx=1, pady=1)
+
+        label = tk.Label(frame, text=self.text, bg=self.bg, fg=self.fg,
+                         justify="left", font=("Consolas", 18, "bold"), wraplength=450)
+        label.pack(padx=15, pady=10)
+
+        self.tooltip_window.update_idletasks()
+
+        w_tooltip = self.tooltip_window.winfo_width()
+
+        x_new = x - w_tooltip - 10
+
+        self.tooltip_window.wm_geometry(f"+{x_new}+{y}")
+
+    def hide_tooltip(self, event=None):
+        if self.tooltip_window:
+            self.tooltip_window.destroy()
+            self.tooltip_window = None
+
 class InterfazRadar:
     def __init__(self, root, grafo, gestor_trafico):
         self.root = root
@@ -19,6 +64,11 @@ class InterfazRadar:
         self.etiquetas_ui = {}
         self.contador_vuelos = 1
 
+        self.scale_x = 1.0
+        self.scale_y = 1.0
+        self.offset_x = 0
+        self.offset_y = 0
+
         self.main_frame = ctk.CTkFrame(self.root, fg_color="#050a05")
         self.main_frame.pack(fill=tk.BOTH, expand=True, padx=10, pady=10)
 
@@ -32,22 +82,50 @@ class InterfazRadar:
         self.control_frame.pack(side=tk.RIGHT, fill=tk.Y)
         self.control_frame.pack_propagate(False)
 
-        self.lbl_titulo = ctk.CTkLabel(self.control_frame, text="CONTROL DE TRÁFICO Y CLIMA", font=("Consolas", 18, "bold"), text_color="#00ff41")
+        self.lbl_titulo = ctk.CTkLabel(self.control_frame, text="CONTROL DE TRÁFICO Y CLIMA",
+                                       font=("Consolas", 18, "bold"), text_color="#00ff41")
         self.lbl_titulo.pack(pady=(20, 10))
 
-        self.btn_uio_gye = ctk.CTkButton(self.control_frame, text="✈ Despachar UIO -> GYE",
+        self.row_uio_gye = ctk.CTkFrame(self.control_frame, fg_color="transparent")
+        self.row_uio_gye.pack(fill=tk.X, padx=20, pady=5)
+
+        self.btn_uio_gye = ctk.CTkButton(self.row_uio_gye, text="✈ Despachar UIO -> GYE",
                                          command=lambda: self.crear_vuelo("Quito", "Guayaquil"),
                                          font=("Consolas", 14, "bold"), fg_color="#004d00", hover_color="#00cc00")
-        self.btn_uio_gye.pack(fill=tk.X, padx=20, pady=5)
+        self.btn_uio_gye.pack(side=tk.LEFT, fill=tk.X, expand=True)
 
-        self.btn_gye_uio = ctk.CTkButton(self.control_frame, text="✈ Despachar GYE -> UIO",
+        self.help_uio_gye = ctk.CTkButton(self.row_uio_gye, text="🛈", width=30, height=30,
+                                          fg_color="transparent", hover_color="#00cc00", font=("Consolas", 16))
+        self.help_uio_gye.pack(side=tk.LEFT, padx=(10, 0))
+
+
+        ToolTip(self.help_uio_gye,
+                "Solicita un nuevo vuelo de Quito a Guayaquil.\n"
+                "El sistema calcula automáticamente la ruta óptima,\n"
+                "considerando tormentas y aerovías cerradas.")
+
+        self.row_gye_uio = ctk.CTkFrame(self.control_frame, fg_color="transparent")
+        self.row_gye_uio.pack(fill=tk.X, padx=20, pady=5)
+
+        self.btn_gye_uio = ctk.CTkButton(self.row_gye_uio, text="✈ Despachar GYE -> UIO",
                                          command=lambda: self.crear_vuelo("Guayaquil", "Quito"),
                                          font=("Consolas", 14, "bold"), fg_color="#004d00", hover_color="#00cc00")
-        self.btn_gye_uio.pack(fill=tk.X, padx=20, pady=5)
+        self.btn_gye_uio.pack(side=tk.LEFT, fill=tk.X, expand=True)
+
+        self.help_gye_uio = ctk.CTkButton(self.row_gye_uio, text="🛈", width=30, height=30,
+                                          fg_color="transparent", hover_color="#00cc00", font=("Consolas", 16))
+        self.help_gye_uio.pack(side=tk.LEFT, padx=(10, 0))
+
+        ToolTip(self.help_gye_uio,
+                "Solicita un nuevo vuelo de Guayaquil a Quito.\n"
+                "El sistema calcula automáticamente la ruta óptima,\n"
+                "considerando tormentas y aerovías cerradas.")
+
 
         ctk.CTkFrame(self.control_frame, height=2, fg_color="#00ff41").pack(fill=tk.X, padx=20, pady=10)
 
-        self.lbl_consola = ctk.CTkLabel(self.control_frame, text="TRANSMISIONES ATC:", font=("Consolas", 14, "bold"), text_color="#00ff41")
+        self.lbl_consola = ctk.CTkLabel(self.control_frame, text="TRANSMISIONES ATC:", font=("Consolas", 14, "bold"),
+                                        text_color="#00ff41")
         self.lbl_consola.pack(anchor="w", padx=20, pady=(0, 5))
 
         self.consola = ctk.CTkTextbox(self.control_frame, font=("Consolas", 12), fg_color="#000000",
@@ -58,62 +136,83 @@ class InterfazRadar:
         self.root.after(100, self.configurar_fondo)
         self.procesar_cola()
 
-    def configurar_fondo(self):
 
+    def configurar_fondo(self):
         ruta_mapa = "mapa_ecuador.png"
-        width = self.canvas.winfo_width()
-        height = self.canvas.winfo_height()
+        canvas_w = self.canvas.winfo_width()
+        canvas_h = self.canvas.winfo_height()
 
         if os.path.exists(ruta_mapa):
             try:
                 img = Image.open(ruta_mapa)
-                img = img.resize((width, height), Image.Resampling.LANCZOS)
+                orig_img_w, orig_img_h = img.size
+
+                ratio = min(canvas_w / orig_img_w, canvas_h / orig_img_h)
+                new_w = int(orig_img_w * ratio)
+                new_h = int(orig_img_h * ratio)
+
+                self.offset_x = (canvas_w - new_w) // 2
+                self.offset_y = (canvas_h - new_h) // 2
+
+                self.scale_x = ratio
+                self.scale_y = ratio
+
+                img = img.resize((new_w, new_h), Image.Resampling.LANCZOS)
                 self.mapa_imagen = ImageTk.PhotoImage(img)
-                self.canvas.create_image(0, 0, anchor=tk.NW, image=self.mapa_imagen)
+                self.canvas.create_image(self.offset_x, self.offset_y, anchor=tk.NW, image=self.mapa_imagen)
             except Exception as e:
                 self.consola.insert(tk.END, f"[Sistema] Error al cargar mapa: {e}\n")
-                self.dibujar_anillos_radar(width, height)
+                self.dibujar_fallback_radar(canvas_w, canvas_h)
         else:
-            self.dibujar_anillos_radar(width, height)
+            self.dibujar_fallback_radar(canvas_w, canvas_h)
 
         self.dibujar_grafo()
 
-    def dibujar_anillos_radar(self, width, height):
+    def dibujar_fallback_radar(self, width, height):
         cx, cy = width / 2, height / 2
         for r in range(50, 800, 50):
-            self.canvas.create_oval(cx - r, cy - r, cx + r, cy + r, outline="#002200", width=1)
-        self.canvas.create_line(cx, 0, cx, height, fill="#002200", width=1)
-        self.canvas.create_line(0, cy, width, cy, fill="#002200", width=1)
+            self.canvas.create_oval(cx - r, cy - r, cx + r, cy + r, outline="#003300", width=1,
+                                    tags="elements_fallback")
+        self.canvas.create_line(cx, 0, cx, height, fill="#003300", width=1, tags="elements_fallback")
+        self.canvas.create_line(0, cy, width, cy, fill="#003300", width=1, tags="elements_fallback")
 
     def dibujar_grafo(self):
         self.canvas.delete("elementos_grafo")
-
         visitadas = set()
+
         for nombre, nodo in self.grafo.nodos.items():
+            nx1 = (nodo.x * self.scale_x) + self.offset_x
+            ny1 = (nodo.y * self.scale_y) + self.offset_y
+
             for vecino in nodo.vecinos:
                 par = tuple(sorted([nombre, vecino.nombre]))
                 if par not in visitadas:
-                    self.canvas.create_line(nodo.x, nodo.y, vecino.x, vecino.y, fill="#00ff41", dash=(2, 4), width=1,
+                    nx2 = (vecino.x * self.scale_x) + self.offset_x
+                    ny2 = (vecino.y * self.scale_y) + self.offset_y
+
+                    self.canvas.create_line(nx1, ny1, nx2, ny2, fill="#00ff41", dash=(4, 4), width=1.5,
                                             tags="elementos_grafo")
                     visitadas.add(par)
 
         for nombre, nodo in self.grafo.nodos.items():
+            nx = (nodo.x * self.scale_x) + self.offset_x
+            ny = (nodo.y * self.scale_y) + self.offset_y
+
             if nodo.es_aeropuerto:
-                self.canvas.create_rectangle(nodo.x - 8, nodo.y - 8, nodo.x + 8, nodo.y + 8, fill="#00ff41",
-                                             outline="#ffffff", width=1, tags="elementos_grafo")
+                self.canvas.create_rectangle(nx - 10, ny - 10, nx + 10, ny + 10, fill="#00ff41",
+                                             outline="#ffffff", width=1.5, tags="elementos_grafo")
             else:
-                color_nodo = "#ff0000" if getattr(nodo, 'tiene_tormenta', False) else "#008800"
+                color_nodo = "#ff0000" if getattr(nodo, 'tiene_tormenta', False) else "#00bb00"
                 outline_nodo = "#ffff00" if getattr(nodo, 'tiene_tormenta', False) else "#00ff41"
-                self.canvas.create_oval(nodo.x - 5, nodo.y - 5, nodo.x + 5, nodo.y + 5, fill=color_nodo,
+                self.canvas.create_oval(nx - 7, ny - 7, nx + 7, ny + 7, fill=color_nodo,
                                         outline=outline_nodo, tags="elementos_grafo")
 
-            self.canvas.create_text(nodo.x + 15, nodo.y - 15, text=nombre, fill="#ffffff",
-                                    font=("Consolas", 11, "bold"), tags="elementos_grafo")
+            self.canvas.create_text(nx + 20, ny - 18, text=nombre, fill="#ffffff",
+                                    font=("Consolas", 28, "bold"), tags="elementos_grafo")
 
     def crear_vuelo(self, origen, destino):
         ruta_nodos, eventos_clima = self.grafo.obtener_ruta(origen, destino)
         if not ruta_nodos: return
-
         self.dibujar_grafo()
 
         id_vuelo = f"UIO{self.contador_vuelos:03d}"
@@ -148,19 +247,20 @@ class InterfazRadar:
                     v_id = mensaje["id"]
                     x, y = mensaje["x"], mensaje["y"]
                     estado = mensaje.get("estado", "volando")
-
-                    # Naranja si está orbitando, amarillo si vuela normal
                     color_avion = "#ffaa00" if estado == "espera" else "#ffd700"
 
+                    x_scaled = (x * self.scale_x) + self.offset_x
+                    y_scaled = (y * self.scale_y) + self.offset_y
+
                     if v_id in self.aviones_ui:
-
-                        self.canvas.coords(self.aviones_ui[v_id], x, y)
+                        self.canvas.coords(self.aviones_ui[v_id], x_scaled, y_scaled)
                         self.canvas.itemconfig(self.aviones_ui[v_id], fill=color_avion)
-                        self.canvas.coords(self.etiquetas_ui[v_id], x + 15, y + 15)
+                        self.canvas.coords(self.etiquetas_ui[v_id], x_scaled + 20, y_scaled + 20)
                     else:
-
-                        self.aviones_ui[v_id] = self.canvas.create_text(x, y, text="✈", fill=color_avion, font=("Arial", 20))
-                        self.etiquetas_ui[v_id] = self.canvas.create_text(x + 15, y + 15, text=v_id, fill="#ffffff", font=("Consolas", 10, "bold"))
+                        self.aviones_ui[v_id] = self.canvas.create_text(x_scaled, y_scaled, text="✈", fill=color_avion,
+                                                                        font=("Arial", 24))
+                        self.etiquetas_ui[v_id] = self.canvas.create_text(x_scaled + 20, y_scaled + 20, text=v_id,
+                                                                          fill="#ffffff", font=("Consolas", 12, "bold"))
 
                 elif mensaje["tipo"] == "finalizado":
                     v_id = mensaje["id"]
