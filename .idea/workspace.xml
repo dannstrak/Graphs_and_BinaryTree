@@ -5,7 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="36b94352-f6f6-4853-aff5-ec2e393b712b" name="Changes" comment="Estructura_del_programa">
-      <change beforePath="$PROJECT_DIR$/src/mapa_ecuador.png" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/entrypoint.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Data_Structures_and_Algorithms_Graphs_and_BinaryTree.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Data_Structures_and_Algorithms_Graphs_and_BinaryTree.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_7_2026_19_41_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_7_2026_19_41__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/concurrencia/gestor_trafico.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/concurrencia/gestor_trafico.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/visualizacion/radar_ui.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/visualizacion/radar_ui.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,13 +39,10 @@
     &quot;assignee&quot;: &quot;dannstrak&quot;
   }
 }</component>
-  <component name="GithubDefaultAccount">
-    <option name="defaultAccountId" value="9821200b-d50e-4fdf-8f3a-9cf33cd965d6" />
-  </component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/dannstrak/Graphs_and_BinaryTree.git&quot;,
-    &quot;accountId&quot;: &quot;9821200b-d50e-4fdf-8f3a-9cf33cd965d6&quot;
+    &quot;accountId&quot;: &quot;e6250b89-edb9-42e7-9930-383c7b6244fa&quot;
   }
 }</component>
   <component name="McpProjectServerCommands">
@@ -46,61 +51,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0" />
-      <entry key="S2" value="1.0" />
-      <entry key="S5" value="1.0" />
-      <entry key="S10" value="1.0" />
-      <entry key="S30" value="1.0" />
-      <entry key="S60" value="1.0" />
-      <entry key="M2" value="1.0000000000000087" />
-      <entry key="M5" value="1.000016878204015" />
-      <entry key="M10" value="1.0310395557052465" />
-      <entry key="M15" value="1.4196226653878399" />
-      <entry key="M30" value="7.053322845274273" />
-      <entry key="H1" value="24.624601118579402" />
-      <entry key="H2" value="48.008715038756606" />
-      <entry key="H4" value="67.43306617778894" />
-      <entry key="D1" value="89.70874936913793" />
-      <entry key="W1" value="94.22501223969286" />
+      <entry key="MS100" value="1.3496951698212267" />
+      <entry key="MS500" value="3.1108748192910034" />
+      <entry key="S2" value="5.4056988862807" />
+      <entry key="S5" value="6.709974478525574" />
+      <entry key="S10" value="8.675354155108089" />
+      <entry key="S30" value="12.755783787834368" />
+      <entry key="S60" value="14.855545432496953" />
+      <entry key="M2" value="19.80501802345534" />
+      <entry key="M5" value="39.71377029454753" />
+      <entry key="M10" value="62.262474293714035" />
+      <entry key="M15" value="76.00730725557013" />
+      <entry key="M30" value="99.03611375030997" />
+      <entry key="H1" value="126.5600532068424" />
+      <entry key="H2" value="157.5569819829115" />
+      <entry key="H4" value="183.34824255582157" />
+      <entry key="D1" value="213.6659927457993" />
+      <entry key="W1" value="219.9225831717768" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
       <entry key="MS500" value="0.0" />
       <entry key="S2" value="0.0" />
       <entry key="S5" value="0.0" />
-      <entry key="S10" value="3.569547906588006E-183" />
-      <entry key="S30" value="1.5282851936032622E-61" />
-      <entry key="S60" value="3.9094738324057587E-31" />
-      <entry key="M2" value="6.294183793676657E-16" />
-      <entry key="M5" value="1.0334255267336199E-6" />
-      <entry key="M10" value="0.001861170717319215" />
-      <entry key="M15" value="0.02572467310812492" />
-      <entry key="M30" value="0.38104916971458114" />
-      <entry key="H1" value="1.5016360807467306" />
-      <entry key="H2" value="2.9967594059043496" />
-      <entry key="H4" value="4.238680814938875" />
-      <entry key="D1" value="5.662061512745564" />
-      <entry key="W1" value="5.950507689260049" />
+      <entry key="S10" value="8.155257291210151E-236" />
+      <entry key="S30" value="4.336565292812237E-79" />
+      <entry key="S60" value="6.5855045267990625E-40" />
+      <entry key="M2" value="2.5832996875536964E-20" />
+      <entry key="M5" value="1.8179139961457792E-8" />
+      <entry key="M10" value="2.468500873066622E-4" />
+      <entry key="M15" value="0.006690335767330141" />
+      <entry key="M30" value="0.19432561211987118" />
+      <entry key="H1" value="1.0723565459285167" />
+      <entry key="H2" value="2.532439817477893" />
+      <entry key="H4" value="3.8964969645108556" />
+      <entry key="D1" value="5.583182892425491" />
+      <entry key="W1" value="5.938593941969096" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.5864174746159394" />
-      <entry key="MS500" value="0.8987551266110297" />
-      <entry key="S2" value="0.9736667628755977" />
-      <entry key="S5" value="0.9893823033619269" />
-      <entry key="S10" value="0.9946769844336034" />
-      <entry key="S30" value="0.9982225038573258" />
-      <entry key="S60" value="0.9991108566407062" />
-      <entry key="M2" value="0.9995553294544154" />
-      <entry key="M5" value="0.9998400102026653" />
-      <entry key="M10" value="1.0327999510705808" />
-      <entry key="M15" value="1.4451704611837384" />
-      <entry key="M30" value="7.433426159323362" />
-      <entry key="H1" value="26.124385888464225" />
-      <entry key="H2" value="51.00362180962811" />
-      <entry key="H4" value="71.67043426116429" />
-      <entry key="D1" value="95.37051812018545" />
-      <entry key="W1" value="100.17547596203309" />
+      <entry key="MS100" value="1.3038193728328569" />
+      <entry key="MS500" value="2.8842383410077743" />
+      <entry key="S2" value="4.764988773511163" />
+      <entry key="S5" value="5.981257330979888" />
+      <entry key="S10" value="8.08694850866058" />
+      <entry key="S30" value="12.472325320298117" />
+      <entry key="S60" value="14.699106862141605" />
+      <entry key="M2" value="19.722619719480587" />
+      <entry key="M5" value="39.67946822737362" />
+      <entry key="M10" value="62.24512066338549" />
+      <entry key="M15" value="76.00205111309955" />
+      <entry key="M30" value="99.22387074115716" />
+      <entry key="H1" value="127.62799563638612" />
+      <entry key="H2" value="160.08629530693446" />
+      <entry key="H4" value="187.2427481924715" />
+      <entry key="D1" value="219.24875558376752" />
+      <entry key="W1" value="225.86111445209846" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -112,34 +117,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python.main.executor": "Run",
-    "Python.radar_ui.executor": "Run",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "C:/Users/ASUS GAMING/Data_Structures_and_Algorithms_Graphs_and_BinaryTree/src",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.radar_ui.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ASUS GAMING/Data_Structures_and_Algorithms_Graphs_and_BinaryTree/src&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\ASUS GAMING\Data_Structures_and_Algorithms_Graphs_and_BinaryTree\src" />
@@ -209,8 +214,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-PY-261.26222.68" />
-        <option value="bundled-python-sdk-50341a9f1f9c-c2ffad84badb-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-261.26222.68" />
+        <option value="bundled-python-sdk-245168a56dbd-c2ffad84badb-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-261.25134.203" />
       </set>
     </attachedChunks>
   </component>
@@ -225,6 +229,9 @@
       <workItem from="1783219821141" duration="2844000" />
       <workItem from="1783783381372" duration="3394000" />
       <workItem from="1783792516042" duration="8320000" />
+      <workItem from="1784302833073" duration="54000" />
+      <workItem from="1784354968394" duration="2184000" />
+      <workItem from="1784517477585" duration="9952000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <option name="closed" value="true" />
@@ -289,7 +296,9 @@
     <option name="LAST_COMMIT_MESSAGE" value="Estructura_del_programa" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Data_Structures_and_Algorithms_Graphs_and_BinaryTree$radar_ui.coverage" NAME="radar_ui Coverage Results" MODIFIED="1783801753969" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/visualizacion" />
+    <SUITE FILE_PATH="coverage/ProyectoFinalEDA$main.coverage" NAME="main Coverage Results" MODIFIED="1784529837181" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
     <SUITE FILE_PATH="coverage/Data_Structures_and_Algorithms_Graphs_and_BinaryTree$main.coverage" NAME="main Coverage Results" MODIFIED="1783804074045" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/ProyectoFinalEDA$radar_ui.coverage" NAME="radar_ui Coverage Results" MODIFIED="1784158890801" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/visualizacion" />
+    <SUITE FILE_PATH="coverage/Data_Structures_and_Algorithms_Graphs_and_BinaryTree$radar_ui.coverage" NAME="radar_ui Coverage Results" MODIFIED="1783801753969" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/visualizacion" />
   </component>
 </project>

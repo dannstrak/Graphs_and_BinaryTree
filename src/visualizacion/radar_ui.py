@@ -155,6 +155,12 @@ class InterfazRadar:
                                               hover_color="#00cc00")
         self.btn_buscar_vuelo.pack(side=tk.LEFT)
 
+        self.btn_reiniciar = ctk.CTkButton(self.control_frame, text="🔄 Reiniciar Simulación",
+                                           command=self.reiniciar_simulacion,
+                                           font=("Consolas", 13, "bold"), fg_color="#8a1f00",
+                                           hover_color="#c73e00")
+        self.btn_reiniciar.pack(fill=tk.X, padx=20, pady=(0, 20))
+
         self.mapa_imagen = None
         self.root.after(100, self.configurar_fondo)
         self.procesar_cola()
@@ -312,6 +318,22 @@ class InterfazRadar:
             pass
 
         self.root.after(40, self.procesar_cola)
+
+    def reiniciar_simulacion(self):
+        for v_id in list(self.aviones_ui.keys()):
+            self.canvas.delete(self.aviones_ui[v_id])
+            self.canvas.delete(self.etiquetas_ui[v_id])
+        self.aviones_ui.clear()
+        self.etiquetas_ui.clear()
+
+        self.historial_vuelos.clear()
+        self.contador_vuelos = 1
+
+        self.consola.delete("1.0", tk.END)
+        self.consola.insert(tk.END, "[Sistema] Simulación reiniciada.\n")
+
+        self.gestor.reiniciar()
+        self.dibujar_grafo()
 
     def buscar_vuelo(self):
         id_vuelo = self.entry_buscar_vuelo.get().strip().upper()

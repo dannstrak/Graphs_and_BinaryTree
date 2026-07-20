@@ -63,3 +63,11 @@ class GestorTrafico:
             cola.put("KILL")
         for p in self.procesos:
             p.join()
+
+    def reiniciar(self):
+        """Detiene todos los procesos actuales de forma segura y levanta un set nuevo desde cero."""
+        self.detener_todo()
+        self.procesos = []
+        self.colas_trabajadores = [multiprocessing.Queue() for _ in range(self.num_procesos)]
+        self.indice_asignacion = 0
+        self.iniciar_procesos()
